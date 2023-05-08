@@ -14,7 +14,7 @@ class Websitemail extends Mailable
     use Queueable, SerializesModels;
     public $subject, $body;
 
-    public function __construct()
+    public function __construct($subject, $body)
     {
         $this->subject = $subject;
         $this->body = $body;
@@ -22,7 +22,7 @@ class Websitemail extends Mailable
 
     public function build()
     {
-        return $this->view('mail.mail')->with([
+        return $this->view('email.email')->with([
             'subject' => $this->subject
         ]);
     }
