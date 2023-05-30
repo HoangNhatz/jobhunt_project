@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\JobCategory;
 
+
 class AdminJobCategoryController extends Controller
 {
     public function index() {
@@ -40,7 +41,7 @@ class AdminJobCategoryController extends Controller
         
         $obj->name = $request->name;
         $obj->icon = $request->icon;
-        $obj->save();
+        $obj->update();
         return redirect()->route('admin_job_category')->with('success', 'Data is updated successfully!');
     }
     public function delete($id) {

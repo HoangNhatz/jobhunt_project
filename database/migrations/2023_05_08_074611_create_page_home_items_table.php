@@ -23,6 +23,18 @@ return new class extends Migration
             $table->text('job_category_heading');
             $table->text('job_category_subheading')->nullable();
             $table->text('job_category_status');
+            $table->text('why_choose_heading');
+            $table->text('why_choose_subheading')->nullable();
+            $table->text('why_choose_status');
+            $table->text('featured_jobs_heading');
+            $table->text('featured_jobs_subheading')->nullable();
+            $table->text('featured_jobs_status');
+            $table->text('testimonial_heading');
+            $table->text('testimonial_background');
+            $table->text('testimonial_status');
+            $table->text('blog_heading');
+            $table->text('blog_subheading')->nullable();
+            $table->text('blog_status');
             $table->timestamps();
         });
     }

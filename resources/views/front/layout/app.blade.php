@@ -7,8 +7,8 @@
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
 
-        <meta name="description" content="" />
-        <title>Job Hunt</title>
+        <meta name="description" content="@yield('seo_meta_description')" />
+        <title>@yield('seo_title')</title>
 
         <link rel="icon" type="image/png" href="{{ asset('uploads/favicon.png') }}" />
 
@@ -174,7 +174,7 @@
                             <ul>
                                 <li><a href="{{ route('terms') }}">Terms of Use</a></li>
                                 <li>
-                                    <a href="privacy.html">Privacy Policy</a>
+                                    <a href="{{ route('privacy') }}">Privacy Policy</a>
                                 </li>
                             </ul>
                         </div>
@@ -188,5 +188,36 @@
         </div>
 
         @include('front.layout.scripts_bottom')
+        @if($errors->any())
+            @foreach($errors->all() as $error)
+                <script>
+                    iziToast.error({
+                        title: '',
+                        position: 'topRight',
+                        message: '{{ $error }}',
+                    });
+                </script>
+            @endforeach
+        @endif
+
+
+        @if (session()->get('error'))
+            <script>
+                iziToast.error({
+                    title: '',
+                    position: 'topRight',
+                    message: '{{ session()->get('error') }}',
+                });
+            </script>   
+        @endif
+        @if (session()->get('success'))
+            <script>
+                iziToast.success({
+                    title: '',
+                    position: 'topRight',
+                    message: '{{ session()->get('success') }}',
+                });
+            </script>   
+        @endif
     </body>
 </html>
