@@ -23,7 +23,7 @@
 
 
 
-        @include('admin.layout.slidebar')
+        @include('admin.layout.sidebar')
 
         <div class="main-content">
             <section class="section">
